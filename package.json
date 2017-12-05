@@ -4,7 +4,12 @@
   "description": "Etherium test project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run truffle-test",
+    "truffle-compile": "truffle compile",
+    "truffle-develop": "truffle develop",
+    "truffle-init": "truffle init",
+    "truffle-test": "truffle test",
+    "testrpc": "testrpc"
   },
   "repository": {
     "type": "git",
@@ -16,5 +21,10 @@
   "bugs": {
     "url": "https://github.com/PavelDymkov/coin-box-etherium/issues"
   },
-  "homepage": "https://github.com/PavelDymkov/coin-box-etherium"
+  "homepage": "https://github.com/PavelDymkov/coin-box-etherium",
+  "dependencies": {
+    "ethereumjs-testrpc": "^6.0.3",
+    "truffle": "^4.0.1",
+    "zeppelin-solidity": "^1.4.0"
+  }
 }
