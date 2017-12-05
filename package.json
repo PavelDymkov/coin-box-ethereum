@@ -1,0 +1,20 @@
+{
+  "name": "coin-box-etherium",
+  "version": "1.0.0",
+  "description": "Etherium test project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PavelDymkov/coin-box-etherium.git"
+  },
+  "keywords": [],
+  "author": "Pavel Dymkov<dymkov86@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PavelDymkov/coin-box-etherium/issues"
+  },
+  "homepage": "https://github.com/PavelDymkov/coin-box-etherium"
+}
