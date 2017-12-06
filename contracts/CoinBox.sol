@@ -1,37 +1,29 @@
 pragma solidity ^0.4.18;
 
 import "zeppelin-solidity/contracts/ownership/Ownable.sol";
+import "zeppelin-solidity/contracts/math/SafeMath.sol";
 
-
-library Date {
-    enum type {
-        SECOND, MINUTE, HOUR,
-        DAY, WEEK, YEAR
-    }
-
-    function convert(uint source, type from, type to) {
-        if (from == type.DAY && to == type.SECOND) {
-            return source * 1 days;
-        }
-    }
-}
 
 contract CoinBox is Ownable {
-    using Date for uint;
+    using SafeMath for uint;
 
-    struct Purpose {
-        string title;
-        uint timeLimit;
-        uint balance;
+    uint balance;
+    uint lockedTo;
+
+    function CoinBox(uint periodInDays) public payable {
+        require(periodInDays > 0);
+
+        balance = msg.value;
+        lockedTo = now.add(periodInDays.mul(1 days));
     }
 
-    uint8 purposeCounter;
-    mapping(uint8 => Purpose) purposes;
+    function putCoins() public payable {
+        balance += msg.value;
+    }
 
-    function addPurpose(string title, uint period_in_days) public {
-        Purpose newPurpose;
+    function getCoins() public onlyOwner {
+        require(now > lockedTo);
 
-        newPurpose.title = title;
-        newPurpose.timeLimit = now + period_in_days.convert(type.DAY, type.SECOND);
+        selfdestruct(owner);
     }
 }
