@@ -26,4 +26,8 @@ contract CoinBox is Ownable {
 
         selfdestruct(owner);
     }
+    
+    function getBalance() public view returns(uint) {
+        return balance;
+    }
 }
