@@ -1,6 +1,8 @@
 build/
-www/CoinBox.json
 node_modules/
+
+www/CoinBox.json
+www/test-network.json
 
 *.log
 npm-debug.log*

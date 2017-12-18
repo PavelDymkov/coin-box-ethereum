@@ -4,13 +4,10 @@
   "description": "Etherium test project",
   "main": "index.js",
   "scripts": {
+    "compile": "truffle compile && copyfiles -f build/contracts/CoinBox.json www",
     "server": "static www",
-    "start": "",
-    "test": "npm run truffle-test",
-    "truffle-compile": "truffle compile && copyfiles -f build/contracts/CoinBox.json www",
-    "truffle-develop": "truffle develop",
-    "truffle-init": "truffle init",
-    "truffle-test": "truffle test --network test",
+    "start": "npm run compile",
+    "test": "truffle test --network test",
     "test-network": "node ./lib/start-test-environment.js"
   },
   "repository": {

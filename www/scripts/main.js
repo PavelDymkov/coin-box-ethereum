@@ -1,9 +1,12 @@
-fetch("CoinBox.json")
-    .then(response => {
-        debugger
-        return response.json()
-    })
-    .then(contract => {
-        debugger
-        return contract;
-    });
+(async function() {
+    const CoinBox = await getJson("CoinBox.json");
+    const testNetwork = await getJson("test-network.json");
+
+
+}());
+
+
+async function getJson(url) {
+    return fetch(url).then(response => response.json());
+}
+
