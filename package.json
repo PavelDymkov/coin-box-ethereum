@@ -25,7 +25,6 @@
   "homepage": "https://github.com/PavelDymkov/coin-box-etherium",
   "dependencies": {
     "copyfiles": "^1.2.0",
-    "ethereumjs-testrpc": "^6.0.3",
     "ganache-core": "^2.0.2",
     "node-static": "^0.7.10",
     "truffle": "^4.0.1",
