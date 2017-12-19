@@ -10,6 +10,8 @@ contract CoinBox is Ownable {
     uint balance;
     uint lockedTo;
 
+    event CoinsSend(address sender);
+
     function CoinBox(uint periodInDays) public payable {
         require(periodInDays > 0);
 
@@ -19,6 +21,8 @@ contract CoinBox is Ownable {
 
     function putCoins() public payable {
         balance += msg.value;
+
+        CoinsSend(msg.sender);
     }
 
     function getCoins() public onlyOwner {
@@ -27,7 +31,7 @@ contract CoinBox is Ownable {
         selfdestruct(owner);
     }
     
-    function getBalance() public view returns(uint) {
+    function getBalance() public view onlyOwner returns(uint) {
         return balance;
     }
 }

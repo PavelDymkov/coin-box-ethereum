@@ -68,6 +68,16 @@ contract("CoinBox", accounts => {
 
             assert.equal(balance, excepted);
         });
+
+        it(`should restrict balance for non-owner`, async () => {
+            const tester = async () => {
+                await coinBox.getCoins({ from: accounts[1] });
+            };
+
+            const transactionReverted = await exception.catched(tester, "revert");
+
+            assert.isTrue(transactionReverted);
+        });
     });
 
     describe(`.putCoins()`, () => {
