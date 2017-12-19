@@ -1,8 +1,11 @@
 build/
 node_modules/
 
+deployed-info.json
 www/CoinBox.json
 www/test-network.json
+www/deployed-info.json
+
 
 *.log
 npm-debug.log*

@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "compile": "truffle compile && copyfiles -f build/contracts/CoinBox.json www",
-    "deploy-to-test-network": "truffle migrate --reset --network test",
+    "deploy-to-test-network": "truffle migrate --reset --network development",
     "server": "static www",
     "start": "npm run compile",
     "test": "truffle test --network test",
-    "test-network": "node ./lib/start-test-environment.js"
+    "test-network": "node ./lib/start-test-environment.js",
+    "dev": "node --inspect --inspect-brk node_modules/truffle/build/cli.bundled.js migrate --reset --network development"
   },
   "repository": {
     "type": "git",
