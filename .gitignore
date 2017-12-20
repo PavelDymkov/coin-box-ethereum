@@ -2,6 +2,7 @@ build/
 node_modules/
 
 deployed-info.json
+local-etherium/temp
 www/CoinBox.json
 www/test-network.json
 www/deployed-info.json
