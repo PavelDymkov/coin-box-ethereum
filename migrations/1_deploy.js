@@ -39,11 +39,18 @@ module.exports = function(deployer, network, accounts) {
 
             await web3.eth.personal.unlockAccount(owner, "password123", day);
 
+            // Error: insufficient funds for gas * price + value
+            // Ошибка означает, что на аккаунт еще не намайнилось достаточно эфира
             await deployer.deploy(CoinBox, periodInDays, { from: owner });
 
-            console.log("contract name", CoinBox.contractName);
-            console.log("address", CoinBox.address);
-            console.log("owner", owner);
+            let deployedInfo = {
+                name: CoinBox.contractName,
+                address: CoinBox.address,
+                owner, periodInDays
+            };
+
+            writeJSON("local-etherium/deployed-info.json", deployedInfo);
+            console.log(`deployed-info.json created`);
         } ());
     }
 };
