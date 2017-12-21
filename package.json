@@ -11,6 +11,7 @@
     "local-etherium-network": "node local-etherium/run-network.js",
     "deploy-to-test-network": "truffle migrate --reset --network test_network",
     "deploy-to-local-etherium-network": "truffle migrate --reset --network local_etherium",
+    "connect-to-local-etherium-network": "node local-etherium/connect-to-network.js",
     "dev": "node --inspect --inspect-brk node_modules/truffle/build/cli.bundled.js migrate --reset --network local_etherium"
   },
   "repository": {
