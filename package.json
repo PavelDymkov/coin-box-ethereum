@@ -5,15 +5,12 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run compile",
-    "compile": "truffle compile && copyfiles -f build/contracts/CoinBox.json www",
+    "compile": "truffle compile",
     "test": "truffle test --network test",
-
     "test-network": "node ./lib/start-test-environment.js",
     "local-etherium-network": "node local-etherium/run-network.js",
-
     "deploy-to-test-network": "truffle migrate --reset --network test_network",
     "deploy-to-local-etherium-network": "truffle migrate --reset --network local_etherium",
-
     "dev": "node --inspect --inspect-brk node_modules/truffle/build/cli.bundled.js migrate --reset --network local_etherium"
   },
   "repository": {
@@ -28,9 +25,7 @@
   },
   "homepage": "https://github.com/PavelDymkov/coin-box-etherium",
   "dependencies": {
-    "copyfiles": "^1.2.0",
     "ganache-core": "^2.0.2",
-    "node-static": "^0.7.10",
     "truffle": "^4.0.1",
     "web3": "^1.0.0-beta.26",
     "zeppelin-solidity": "^1.4.0"

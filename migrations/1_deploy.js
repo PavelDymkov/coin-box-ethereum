@@ -3,6 +3,7 @@ const CoinBox = artifacts.require("./CoinBox.sol");
 
 const Web3 = require('web3');
 const writeJSON = require("../lib/write-json.js");
+const truffleConfig = require("../truffle.js");
 
 
 module.exports = function(deployer, network, accounts) {
@@ -23,30 +24,26 @@ module.exports = function(deployer, network, accounts) {
 
             writeJSON("./deployed-info.json", deployedInfo);
             console.log(`deployed-info.json created`);
-
-            writeJSON("./www/deployed-info.json", deployedInfo);
-            console.log(`www/deployed-info.json created`);
         });
     }
 
     if (network == "local_etherium") {
-        const web3 = new Web3(`http://localhost:8545`);
+        const port = truffleConfig.networks.local_etherium.port;
+        const web3 = new Web3(`http://localhost:${port}`);
 
         const owner = accounts[0];
         const periodInDays = 30;
 
         (async function () {
-            await web3.eth.personal.unlockAccount(owner, "password123", 86400);
+            let day = 60 * 60 * 24;
 
-            deployer.deploy(CoinBox, periodInDays, { from: owner }).then(() => {
-                let deployedInfo = {
-                    name: CoinBox.contractName,
-                    address: CoinBox.address,
-                    owner, periodInDays
-                };
+            await web3.eth.personal.unlockAccount(owner, "password123", day);
 
-                console.log(deployedInfo);
-            });
+            await deployer.deploy(CoinBox, periodInDays, { from: owner });
+
+            console.log("contract name", CoinBox.contractName);
+            console.log("address", CoinBox.address);
+            console.log("owner", owner);
         } ());
     }
 };

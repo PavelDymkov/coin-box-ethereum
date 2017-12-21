@@ -13,6 +13,8 @@ exeCommand("mkdir", null, "temp");
 exeCommand("geth", { "--datadir": "./temp" }, "init genesis.json");
 exeCommand("geth", { "--datadir": "./temp" }, "js prepare-network.js");
 
+console.log("geth has been ran");
+
 exeCommand("geth", {
     "--datadir": "./temp",
 
