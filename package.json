@@ -7,11 +7,13 @@
     "start": "npm run compile",
     "compile": "truffle compile && copyfiles -f build/contracts/CoinBox.json www",
     "test": "truffle test --network test",
+
     "test-network": "node ./lib/start-test-environment.js",
     "local-etherium-network": "node local-etherium/run-network.js",
+
     "deploy-to-test-network": "truffle migrate --reset --network test_network",
     "deploy-to-local-etherium-network": "truffle migrate --reset --network local_etherium",
-    "server": "static www",
+
     "dev": "node --inspect --inspect-brk node_modules/truffle/build/cli.bundled.js migrate --reset --network local_etherium"
   },
   "repository": {
