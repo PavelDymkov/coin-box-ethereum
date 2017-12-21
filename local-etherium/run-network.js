@@ -11,7 +11,7 @@ exeCommand("rm", { "-rf": "temp" });
 exeCommand("mkdir", null, "temp");
 
 exeCommand("geth", { "--datadir": "./temp" }, "init genesis.json");
-//exeCommand("geth", { "--datadir": "./temp" }, "import ./blockchain");
+exeCommand("geth", { "--datadir": "./temp" }, "js prepare-network.js");
 
 exeCommand("geth", {
     "--datadir": "./temp",
@@ -44,7 +44,7 @@ function exeCommand(command, options, args) {
         args.unshift(key);
     }
 
-    console.log("execute:\n", `${command} ${args.join(" ")}`, "\n");
+    // console.log("execute:\n", `${command} ${args.join(" ")}`, "\n");
 
     let result = spawnSync(command, args, {
         cwd: __dirname
