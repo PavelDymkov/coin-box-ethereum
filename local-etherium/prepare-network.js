@@ -3,11 +3,16 @@ const readJSON = require("../lib/read-json.js");
 
 
 const config = readJSON("local-etherium/config.json");
+const web3 = new Web3(`http://localhost:${config.rpcport}`);
 
-const web3 = new Web3(new Web3.providers.WebsocketProvider(`ws://localhost:${config.wsport}`));
+const accountsNumber = 5;
+const day = 86400;
 
 (async () => {
-    debugger
-    let r1 = await web3.eth.personal.newAccount('!@superpassword');
-    debugger
+    for (let counter = 0; counter < accountsNumber; counter++) {
+        let password = "password123";
+        let address = await web3.eth.personal.newAccount(password);
+
+        await web3.eth.personal.unlockAccount(address, password, day);
+    }
 })();

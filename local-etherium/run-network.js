@@ -10,25 +10,28 @@ const config = readJSON("local-etherium/config.json");
 exeCommand("rm", { "-rf": "temp" });
 exeCommand("mkdir", null, "temp");
 
+exeCommand("geth", { "--datadir": "./temp" }, "init genesis.json");
+//exeCommand("geth", { "--datadir": "./temp" }, "import ./blockchain");
+
 exeCommand("geth", {
     "--datadir": "./temp",
 
     "--identity": "LocalTestNetwork",
     "--networkid": genesisJSON.config.chainId,
     "--nodiscover": null,
-    "--maxpeers": "0"
-}, "init genesis.json");
+    "--maxpeers": "0",
+    "--ipcdisable": null,
+    "--mine": null,
 
-exeCommand("geth", {
     "--rpc": null,
     "--rpcport": String(config.rpcport),
-    "--rpccorsdomain=\"*\"": null,
-    "--rpcapi": '"db,eth,net,web3"',
+    "--rpccorsdomain": '"*"',
+    "--rpcapi": '"admin,db,eth,debug,miner,net,shh,txpool,personal,web3"',
 
     "--ws": null,
     "--wsport": String(config.wsport),
-    "--wsorigins=\"*\"": null,
-    "--wsapi": '"db,eth,net,web3,personal"'
+    "--wsorigins": '"*"',
+    "--wsapi": '"admin,db,eth,debug,miner,net,shh,txpool,personal,web3"'
 });
 
 

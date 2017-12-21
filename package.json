@@ -4,13 +4,15 @@
   "description": "Etherium test project",
   "main": "index.js",
   "scripts": {
-    "compile": "truffle compile && copyfiles -f build/contracts/CoinBox.json www",
-    "deploy-to-test-network": "truffle migrate --reset --network development",
-    "server": "static www",
     "start": "npm run compile",
+    "compile": "truffle compile && copyfiles -f build/contracts/CoinBox.json www",
     "test": "truffle test --network test",
     "test-network": "node ./lib/start-test-environment.js",
-    "dev": "node --inspect --inspect-brk node_modules/truffle/build/cli.bundled.js migrate --reset --network development"
+    "local-etherium-network": "node local-etherium/run-network.js",
+    "deploy-to-test-network": "truffle migrate --reset --network test_network",
+    "deploy-to-local-etherium-network": "truffle migrate --reset --network local_etherium",
+    "server": "static www",
+    "dev": "node --inspect --inspect-brk node_modules/truffle/build/cli.bundled.js migrate --reset --network local_etherium"
   },
   "repository": {
     "type": "git",
@@ -28,7 +30,7 @@
     "ganache-core": "^2.0.2",
     "node-static": "^0.7.10",
     "truffle": "^4.0.1",
-    "web3": "^1.0.0-beta.15",
+    "web3": "^1.0.0-beta.26",
     "zeppelin-solidity": "^1.4.0"
   }
 }
