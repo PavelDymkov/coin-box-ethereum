@@ -2,7 +2,8 @@ build/
 node_modules/
 
 deployed-info.json
-local-etherium/temp
+test-network.json
+local-ethereum/temp
 
 *.log
 npm-debug.log*

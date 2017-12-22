@@ -3,8 +3,8 @@ const readJSON = require("../lib/read-json.js");
 
 
 const CoinBox = readJSON("build/contracts/CoinBox.json");
-const config = readJSON("local-etherium/config.json");
-const deployInfo = readJSON("local-etherium/deployed-info.json");
+const config = readJSON("local-ethereum/config.json");
+const deployInfo = readJSON("local-ethereum/deployed-info.json");
 const web3 = new Web3(`http://localhost:${config.rpcport}`);
 // const web3 = new Web3(`ws://localhost:${config.wsport}`); // not work
 

@@ -49,7 +49,7 @@ module.exports = function(deployer, network, accounts) {
                 owner, periodInDays
             };
 
-            writeJSON("local-etherium/deployed-info.json", deployedInfo);
+            writeJSON("local-ethereum/deployed-info.json", deployedInfo);
             console.log(`deployed-info.json created`);
         } ());
     }

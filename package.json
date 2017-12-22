@@ -1,30 +1,30 @@
 {
-  "name": "coin-box-etherium",
+  "name": "coin-box-ethereum",
   "version": "1.0.0",
-  "description": "Etherium test project",
+  "description": "Ethereum test project",
   "main": "index.js",
   "scripts": {
     "start": "npm run compile",
     "compile": "truffle compile",
     "test": "truffle test --network test",
-    "test-network": "node ./lib/start-test-environment.js",
-    "local-etherium-network": "node local-etherium/run-network.js",
+    "test-network": "node lib/start-test-environment.js",
+    "local-ethereum-network": "node local-ethereum/run-network.js",
     "deploy-to-test-network": "truffle migrate --reset --network test_network",
-    "deploy-to-local-etherium-network": "truffle migrate --reset --network local_etherium",
-    "connect-to-local-etherium-network": "node local-etherium/connect-to-network.js",
+    "deploy-to-local-ethereum-network": "truffle migrate --reset --network local_etherium",
+    "connect-to-local-ethereum-network": "node local-ethereum/connect-to-network.js",
     "dev": "node --inspect --inspect-brk node_modules/truffle/build/cli.bundled.js migrate --reset --network local_etherium"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/PavelDymkov/coin-box-etherium.git"
+    "url": "git+https://github.com/PavelDymkov/coin-box-ethereum.git"
   },
   "keywords": [],
   "author": "Pavel Dymkov<dymkov86@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/PavelDymkov/coin-box-etherium/issues"
+    "url": "https://github.com/PavelDymkov/coin-box-ethereum/issues"
   },
-  "homepage": "https://github.com/PavelDymkov/coin-box-etherium",
+  "homepage": "https://github.com/PavelDymkov/coin-box-ethereum",
   "dependencies": {
     "ganache-core": "^2.0.2",
     "truffle": "^4.0.1",

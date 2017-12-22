@@ -21,7 +21,7 @@ npm install
 
 Также будет необходим
 [Geth](https://geth.ethereum.org/downloads/)
-и Etherium-кошелек
+и Ethereum-кошелек
 [Mist](https://github.com/ethereum/mist/releases)
 
 
@@ -52,7 +52,7 @@ npm run test
 ```
 
 
-### Деплой смарт контракта в локальную сеть Etherium
+### Деплой смарт контракта в локальную сеть Ethereum
 
 
 1. Скомпилировать смарт-контракт
@@ -63,11 +63,11 @@ npm run compile
 ```
 
 
-2. Запустить локальную сеть Etherium
+2. Запустить локальную сеть Ethereum
 
 
 ```bash
-npm run local-etherium-network
+npm run local-ethereum-network
 ```
 
 
@@ -78,7 +78,7 @@ npm run local-etherium-network
 
 
 ```bash
-npm run deploy-to-local-etherium-network
+npm run deploy-to-local-ethereum-network
 ```
 
 
@@ -101,7 +101,7 @@ mist --rpc http://localhost:8545 --swarmurl="http://swarm-gateways.net"
 5. Во вкладке "Контракты", нажимаем "НАБЛЮДАТЬ ЗА КОНТРАКТОМ"
 
 
-Адрес контракта и его название берем из `local-etherium/deployed-info.json`
+Адрес контракта и его название берем из `local-ethereum/deployed-info.json`
 (`address` и `name`, соответственно), JSON интерфейс берется
 из `build/contracts/CoinBox.json` (значение свойства `abi`)
 

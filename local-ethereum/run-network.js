@@ -3,8 +3,8 @@ const { join } = require("path");
 const readJSON = require("../lib/read-json.js");
 
 
-const genesisJSON = readJSON("local-etherium/genesis.json");
-const config = readJSON("local-etherium/config.json");
+const genesisJSON = readJSON("local-ethereum/genesis.json");
+const config = readJSON("local-ethereum/config.json");
 
 
 executeCommand(`rm -rf temp`);
